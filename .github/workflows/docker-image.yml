@@ -33,7 +33,7 @@ jobs:
         context: ./
         file: ./Dockerfile
         push: true
-        tags: ${{ steps.tag.outputs.tag }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/wordpress_app:${{ steps.tag.outputs.tag }}
 
 
 #on:
