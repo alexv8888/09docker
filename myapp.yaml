@@ -1,0 +1,37 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myappsrv
+  labels:
+    app: myapp
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: myapp
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+  labels:
+    app: myapp
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - image: alexv8288/hello_fastapi:latest
+        name: myapp
+        env:
+        ports:
+        - containerPort: 80
+          name: myapp
