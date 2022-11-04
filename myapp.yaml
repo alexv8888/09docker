@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - image: alexv8288/hello_fastapi:latest
-        imagePullPolicy: "Always
+      imagePullPolicy: "Always
         name: myapp
         env:
         ports:
